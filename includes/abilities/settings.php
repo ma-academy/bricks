@@ -75,7 +75,8 @@ class Settings {
 	 * @return array
 	 */
 	private static function credential_registry(): array {
-		return [			'apiKeyUnsplash'              => [
+		return [
+			'apiKeyUnsplash'              => [
 				'label'    => __( 'Unsplash API key', 'bricks' ),
 				'category' => 'media',
 				'source'   => 'globalSettings',
@@ -1757,7 +1758,9 @@ class Settings {
 
 		if ( ! $constant || ! defined( $constant ) ) {
 			return false;
-		}		return self::value_is_configured( constant( $constant ) );
+		}
+
+		return self::value_is_configured( constant( $constant ) );
 	}
 
 	/**

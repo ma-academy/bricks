@@ -2923,7 +2923,8 @@ class Admin {
 			self::EDITING_CAP,
 			'bricks-system-information',
 			[ $this, 'admin_screen_system_information' ]
-		);	}
+		);
+	}
 
 
 	/**
