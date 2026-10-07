@@ -743,16 +743,7 @@ class Api {
 	 * @return array
 	 */
 	public static function get_feed() {
-		$remote_base_url = BRICKS_REMOTE_URL;
-		$feed_url        = trailingslashit( $remote_base_url ) . trailingslashit( rest_get_url_prefix() ) . trailingslashit( self::API_NAMESPACE ) . trailingslashit( 'feed' );
-
-		$response = Helpers::remote_get( $feed_url );
-
-		if ( is_wp_error( $response ) ) {
-			return [];
-		} else {
-			return json_decode( wp_remote_retrieve_body( $response ), true );
-		}
+		return [];
 	}
 
 	/**

@@ -75,16 +75,7 @@ class Settings {
 	 * @return array
 	 */
 	private static function credential_registry(): array {
-		return [
-			'licenseKey'                  => [
-				'label'    => __( 'Bricks license key', 'bricks' ),
-				'category' => 'license',
-				'source'   => 'optionOrConstant',
-				'option'   => 'bricks_license_key',
-				'constant' => 'BRICKS_LICENSE_KEY',
-				'usedBy'   => [ 'license', 'template library', 'updates' ],
-			],
-			'apiKeyUnsplash'              => [
+		return [			'apiKeyUnsplash'              => [
 				'label'    => __( 'Unsplash API key', 'bricks' ),
 				'category' => 'media',
 				'source'   => 'globalSettings',
@@ -1766,13 +1757,7 @@ class Settings {
 
 		if ( ! $constant || ! defined( $constant ) ) {
 			return false;
-		}
-
-		if ( $constant === 'BRICKS_LICENSE_KEY' && class_exists( '\Bricks\License' ) ) {
-			return (bool) \Bricks\License::get_constant_license_key();
-		}
-
-		return self::value_is_configured( constant( $constant ) );
+		}		return self::value_is_configured( constant( $constant ) );
 	}
 
 	/**

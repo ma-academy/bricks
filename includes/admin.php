@@ -943,9 +943,6 @@ class Admin {
 			\Bricks\Integrations\Form\Submission_Database::maybe_create_table();
 		}
 
-		// Download remote templates from server and store as db option
-		Templates::get_remote_templates_data();
-
 		// Maybe create query filters table (@since 1.9.6)
 		if ( isset( $settings['enableQueryFilters'] ) ) {
 			\Bricks\Query_Filters::get_instance()->maybe_create_tables();
@@ -2926,17 +2923,7 @@ class Admin {
 			self::EDITING_CAP,
 			'bricks-system-information',
 			[ $this, 'admin_screen_system_information' ]
-		);
-
-		add_submenu_page(
-			'bricks',
-			esc_html__( 'License', 'bricks' ),
-			esc_html__( 'License', 'bricks' ),
-			self::EDITING_CAP,
-			'bricks-license',
-			[ $this, 'admin_screen_license' ]
-		);
-	}
+		);	}
 
 
 	/**
@@ -2986,10 +2973,6 @@ class Admin {
 
 	public function admin_screen_system_information() {
 		require_once 'admin/admin-screen-system-information.php';
-	}
-
-	public function admin_screen_license() {
-		require_once 'admin/admin-screen-license.php';
 	}
 
 	/**

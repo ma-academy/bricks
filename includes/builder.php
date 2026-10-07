@@ -2063,16 +2063,7 @@ class Builder {
 		if ( ! is_user_logged_in() ) {
 			wp_redirect( home_url() );
 			die;
-		}
-
-		// STEP: Return if license in not valid
-		$license_is_valid = License::license_is_valid();
-
-		if ( ! $license_is_valid ) {
-			wp_redirect( admin_url( 'admin.php?page=bricks-license' ) );
-		}
-
-		// STEP: Return if current user can not edit this post
+		}		// STEP: Return if current user can not edit this post
 		$post_id = is_single() ? get_the_ID() : 0;
 		if ( ! Capabilities::current_user_can_use_builder( $post_id ) ) {
 			// Redirect users without builder capabilities back to WordPress admin area

@@ -13,7 +13,6 @@ class Theme {
 	public $breakpoints;
 	public $blocks;
 	public $revisions;
-	public $license;
 	public $theme_styles;
 	public $custom_fonts;
 	public $settings;
@@ -104,7 +103,6 @@ class Theme {
 		$this->blocks      = new Blocks();
 		$this->revisions   = new Revisions();
 
-		$this->license      = new License();
 		$this->setup        = new Setup();
 		$this->search       = new Search();
 		$this->custom_fonts = new Custom_Fonts();

@@ -15,7 +15,7 @@ define( 'BRICKS_PATH', trailingslashit( get_template_directory() ) );    // requ
 define( 'BRICKS_PATH_ASSETS', trailingslashit( BRICKS_PATH . 'assets' ) );
 define( 'BRICKS_URL', trailingslashit( get_template_directory_uri() ) ); // WP enqueue files
 define( 'BRICKS_URL_ASSETS', trailingslashit( BRICKS_URL . 'assets' ) );
-define( 'BRICKS_REMOTE_URL', 'https://my.bricksbuilder.io/' );
+define( 'BRICKS_REMOTE_URL', home_url( '/' ) ); // Local-only fork: vendor endpoint disabled.
 
 define( 'BRICKS_BUILDER_PARAM', 'bricks' );
 define( 'BRICKS_BUILDER_IFRAME_PARAM', 'brickspreview' );
@@ -126,7 +126,6 @@ define( 'BRICKS_DB_CUSTOM_FONT_FACE_RULES', 'bricks_font_face_rules' ); // @sinc
 
 define( 'BRICKS_EXPORT_TEMPLATES', 'brick_export_templates' );
 
-define( 'BRICKS_ADMIN_PAGE_URL_LICENSE', admin_url( 'admin.php?page=bricks-license' ) );
 
 define( 'BRICKS_AUTH_CHECK_INTERVAL', 30 );
 

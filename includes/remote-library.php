@@ -45,34 +45,7 @@ class Remote_Library {
 	 * @return array
 	 */
 	public static function get_sources() {
-		$sources    = [];
-		$legacy_url = trim( (string) Database::get_setting( 'remoteTemplatesUrl', '' ) );
-
-		if ( $legacy_url ) {
-			$sources[] = self::normalize_source(
-				[
-					'name'     => $legacy_url,
-					'url'      => $legacy_url,
-					'password' => Database::get_setting( 'remoteTemplatesPassword', '' ),
-				]
-			);
-		}
-
-		foreach ( (array) Database::get_setting( 'remoteTemplates', [] ) as $source ) {
-			if ( ! is_array( $source ) || empty( $source['url'] ) ) {
-				continue;
-			}
-
-			$sources[] = self::normalize_source( $source );
-		}
-
-		$unique = [];
-
-		foreach ( $sources as $source ) {
-			$unique[ $source['id'] ] = $source;
-		}
-
-		return array_values( $unique );
+		return [];
 	}
 
 	/**

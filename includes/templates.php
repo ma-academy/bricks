@@ -608,53 +608,12 @@ class Templates {
 	 * @since 1.0
 	 */
 	public static function get_remote_templates_data() {
-		$template_source   = $_POST['templateSource'] ?? '';
-		$template_settings = self::get_remote_template_settings( $template_source );
-
-		$request_url = Api::get_endpoint( 'get-templates-data', $template_source );
-
-		// Is a Bricks template request
-		$template_source_id = $template_settings['id'] ?? ''; // wireframes, design-sets, community-templates, etc. (@since 2.0)
-		if ( $template_source_id ) {
-			$request_url = Api::get_endpoint( 'get-templates-data', BRICKS_REMOTE_URL );
-
-			$request_url = add_query_arg( [ 'source' => $template_source_id ], $request_url );
-
-			// Send license key for verification (no active license key, no templates)
-			$request_url = add_query_arg( [ 'licenseKey' => License::$license_key ], $request_url );
-		}
-
-		// Add site URL to the request URL
-		$request_url = add_query_arg( [ 'site' => get_site_url() ], $request_url );
-
-		// Add password if provided
-		if ( ! empty( $template_settings['password'] ) ) {
-			$request_url = add_query_arg( [ 'password' => urlencode( $template_settings['password'] ) ], $request_url );
-		}
-
-		$request_url = add_query_arg( [ 'time' => time() ], $request_url );
-
-		$response = Helpers::remote_get( $request_url );
-
-		// Return error to show in builder templates manager
-		if ( is_wp_error( $response ) ) {
-			return [
-				'error'       => $response->get_error_message(),
-				'request_url' => $request_url,
-			];
-		}
-
-		$remote_templates = json_decode( wp_remote_retrieve_body( $response ), true );
-		$remote_templates = apply_filters( 'bricks/get_remote_templates_data', $remote_templates );
-
-		if ( ! empty( $remote_templates['error']['message'] ) ) {
-			return [
-				'error'       => $remote_templates['error']['message'],
-				'request_url' => $request_url,
-			];
-		}
-
-		return $remote_templates;
+		return [
+			'templates' => [],
+			'authors'   => [],
+			'bundles'   => [],
+			'tags'      => [],
+		];
 	}
 
 	/**
