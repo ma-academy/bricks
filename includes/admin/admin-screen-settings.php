@@ -3561,4 +3561,12 @@ if ( $code_review ) {
 
 		<span class="spinner saving"></span>
 	</form>
+
+	<div class="bricks-academy-credit" style="margin-top:24px;padding:16px 20px;border:1px solid #dcdcde;border-radius:4px;background:#fff;">
+		<p style="margin:0 0 6px;color:#646970;font-size:12px;">Academy Edition</p>
+		<p style="margin:0;font-size:14px;font-weight:600;">
+			<a href="<?php echo esc_url( 'https://muhammadalaa.com/' ); ?>" target="_blank" rel="noopener noreferrer">Muhammad Alaa Academy <span class="dashicons dashicons-external" style="font-size:15px;width:15px;height:15px;" aria-hidden="true"></span></a>
+		</p>
+		<p class="description" style="margin:6px 0 0;">Custom Bricks edition</p>
+	</div>
 </div>
