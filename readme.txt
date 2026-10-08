@@ -6,6 +6,9 @@ Stable tag: 5.4
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+Academy edition: Muhammad Alaa Academy - https://muhammadalaa.com/
+Original theme author: Bricks - https://bricksbuilder.io/
+
 Official Documentation: https://academy.bricksbuilder.io/
 Getting Started: https://academy.bricksbuilder.io/topic/getting-started/
 Developer Docs: https://academy.bricksbuilder.io/collection/developer/
